@@ -30,12 +30,12 @@
 			if(foo2) masonry.stamp(foo2);
 
                         masonry.layout();
-    
                         elem.children(options.itemSelector).css('visibility', 'visible');
 
 			/* mw add */
                         if(foo2) elem.children(options.stamp).css('visibility', 'visible');
-                    }, 120);
+
+                    }, 200);
                 };
                 
                 scope.removeBrick = function() {

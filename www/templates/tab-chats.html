@@ -1,30 +1,15 @@
 <ion-view view-title="Chats">
   <ion-content style="min-height: 800px;">
-    <!-- <ion-list> -->
-    <!--   <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}"> -->
-    <!--     <img ng-src="{{chat.face}}"> -->
-    <!--     <h2>{{chat.name}}</h2> -->
-    <!--     <p>{{chat.lastText}}</p> -->
-    <!--     <i class="icon ion-chevron-right icon-accessory"></i> -->
-
-    <!--     <ion-option-button class="button-assertive" ng-click="remove(chat)"> -->
-    <!--       Delete -->
-    <!--     </ion-option-button> -->
-    <!--   </ion-item> -->
-    <!-- </ion-list> -->
-
+    
     <div class="list" style="display: flex; justify-content: center;">
-      <!-- <ion-list> -->
       <div masonry ='{ "transitionDuration" : "0" , "itemSelector" : ".masonry-brick", "isFitWidth":"true", "columnWidth":".masonryitem", "gutter":3}' class="center-block" >
 	<div masonry-tile class="masonry-brick masonryitem"  ng-repeat="book in _list"> 
-	  <!-- track by book.bookid -->
 
 	  <!-- cover art; span is for personalize page where books aren't clickable. -->
 	  <span ng-if="!book.booklink" data-ga-payload="{{book.gap}}" class="coverart_clickthru" href="{{book.booklink}}">
 	    <img class="stream_cover_image hoverfade" title="{{book.title}}" ng-src="{{book.coverarturl}}"> --
 	  </span>
 	  
-	  <!-- ng-href="{{book.booklink}}" -->
 	  <a ng-if="book.booklink" data-ga-payload="{{book.gap}}" class="coverart_clickthru" 
 	     ng-href="{{interests ? book.amazonurl : book.booklink}}">
 	    <img style="max-height: 429px" class="stream_cover_image hoverfade" title="{{book.title}}" ng-src="{{book.coverarturl}}">
@@ -41,7 +26,6 @@
 	    <span ng-if="!book.booklink" class="pull-left author_clickthru" href="{{book.authorlink}}">by {{book.authorstring}}</span>
 	    <a ng-if="book.booklink" class="publication_date pull-left author_clickthru" href="{{book.authorlink}}">by {{book.authorstring}}</a>
 	    <span class="publication_date pull-right" >({{book.pubdate | bookpubdate}}) </span>
-	    <!-- <span class="publication_date pull-right" >({{book.pubdate}}) </span> -->
 	  </div>
 
 	  <div class="ol_readapi_book row card_row" olid="{{book.olreadableid}}"></div>
@@ -66,32 +50,16 @@
 	  </div>
 	</div>
       </div>
-      <!-- <div masonry-tile class="masonry-brick masonryitem"  collection-repeat="list in _list"> -->
-      <!-- 	<\!-- <ion-item collection-repeat="list in _list" class="item-thumbnail-left"> -\-> -->
-      <!-- 	<img ng-src="{{list.image}}"> -->
-      <!--   <h2>{{list.name}}</h2> -->
-      <!-- 	<p>{{list.address}}</p> -->
-      <!--   <p>{{list.phone}}</p>      -->
-      <!-- 	<p>{{list.description}}</p> -->
-      <!-- 	<\!-- </ion-item> -\-> -->
-      <!-- </div> -->
     </div>
-    <!-- </ion-list> -->
     
+    <!-- immediate-check=false is key here - otherwise it's easy to go into a quick loop to 5 or so updates -->
     <ion-infinite-scroll
        ng-if="canWeLoadMoreContent()"
        on-infinite="populateList()" 
-       distance="1%">
+       immediate-check="false"
+       distance="10%">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-
-
-    <!-- <ion-infinite-scroll -->
-    <!--   ng-if="moreDataCanBeLoaded()" -->
-    <!--   icon="ion-loading-c" -->
-    <!--   on-infinite="loadMoreData()" -->
-    <!--   distance="1%"> -->
-    <!-- </ion-infinite-scroll> -->
 
   </ion-content>
 </ion-view>
