@@ -13,3 +13,5 @@ to use, you will need Ionic V1 installed. You can either use these files in thei
 > ionic start masonry tabs
 
 and then merge in the changes. 
+
+Your result should look something like [this](https://github.com/viking2917/ionicMasonryExample/blob/master/www/img/result.png).
