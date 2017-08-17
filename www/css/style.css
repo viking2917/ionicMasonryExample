@@ -1,0 +1,84 @@
+/* Empty. Add your own CSS if you like */
+hr {
+    border: 0;
+    border-top: 1px solid #5AA7A4;
+    margin: 2px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pull-left {
+    float: left !important;
+}
+.pull-right {
+    float: right !important;
+}
+
+.masonryitem {
+    width: 260px;
+    margin: 3px;
+    margin-top: 10px;
+    padding-bottom: 8px;
+    box-shadow:0 1px 1px 1px rgba(0,0,0,0.5);
+    -webkit-border-radius:5px;
+    -khtml-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    background-color: white;
+}
+.stream_cover_image {
+    width: 100%;
+    margin-left: 0px;
+}
+.caption-padding {
+    padding-top: 2px;
+    padding-right: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.card_row {
+    margin-left: 0px; /* override bootstraps row margins */
+    margin-right: 0px; /* override bootstraps row margins */
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.card_title {
+    color: black;
+    font-size: 16px;
+}
+.card-text {
+    color: #000000;
+    font-family: 'Special Elite', cursive;
+    padding-top: 11px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+}
+.publication_date {
+    font-style: italic;
+    font-size: 12px;
+    color: black;
+}
+.thp-hero--withImage .thp-avatar {
+    margin-top: -80px;
+}
+.thp-avatar, .thp-avatar-small {
+    margin-top: 20px;
+    display: inline-block;
+    overflow: hidden;
+    border: 3px solid #fff;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    border-radius: 100%;
+}
+.thp-avatar>img {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+.thp-avatar-small>img {
+    display: block;
+    width: 80px;
+    height: 80px;
+}

@@ -1,0 +1,97 @@
+<ion-view view-title="Chats">
+  <ion-content style="min-height: 800px;">
+    <!-- <ion-list> -->
+    <!--   <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}"> -->
+    <!--     <img ng-src="{{chat.face}}"> -->
+    <!--     <h2>{{chat.name}}</h2> -->
+    <!--     <p>{{chat.lastText}}</p> -->
+    <!--     <i class="icon ion-chevron-right icon-accessory"></i> -->
+
+    <!--     <ion-option-button class="button-assertive" ng-click="remove(chat)"> -->
+    <!--       Delete -->
+    <!--     </ion-option-button> -->
+    <!--   </ion-item> -->
+    <!-- </ion-list> -->
+
+    <div class="list" style="display: flex; justify-content: center;">
+      <!-- <ion-list> -->
+      <div masonry ='{ "transitionDuration" : "0" , "itemSelector" : ".masonry-brick", "isFitWidth":"true", "columnWidth":".masonryitem", "gutter":3}' class="center-block" >
+	<div masonry-tile class="masonry-brick masonryitem"  ng-repeat="book in _list"> 
+	  <!-- track by book.bookid -->
+
+	  <!-- cover art; span is for personalize page where books aren't clickable. -->
+	  <span ng-if="!book.booklink" data-ga-payload="{{book.gap}}" class="coverart_clickthru" href="{{book.booklink}}">
+	    <img class="stream_cover_image hoverfade" title="{{book.title}}" ng-src="{{book.coverarturl}}"> --
+	  </span>
+	  
+	  <!-- ng-href="{{book.booklink}}" -->
+	  <a ng-if="book.booklink" data-ga-payload="{{book.gap}}" class="coverart_clickthru" 
+	     ng-href="{{interests ? book.amazonurl : book.booklink}}">
+	    <img style="max-height: 429px" class="stream_cover_image hoverfade" title="{{book.title}}" ng-src="{{book.coverarturl}}">
+	  </a> 
+	  
+	  <!-- title. span is for personalize page where books aren't clickable -->
+	  <div class="caption-padding"><p style="margin-bottom: 0px; margin-top: 5px; font-weight: bold;">
+	      <span ng-if="!book.booklink" href="{{book.booklink}}" class="card_title title_clickthru" data-ga-payload="{{book.gap}}">{{book.title}}</span>
+	      <a ng-if="book.booklink" href="{{book.booklink}}" class="card_title title_clickthru" data-ga-payload="{{book.gap}}">{{book.title}}</a>
+	  </p></div>
+
+	  <!-- author and pubdate -->
+	  <div class="caption-padding row1 card_row author">
+	    <span ng-if="!book.booklink" class="pull-left author_clickthru" href="{{book.authorlink}}">by {{book.authorstring}}</span>
+	    <a ng-if="book.booklink" class="publication_date pull-left author_clickthru" href="{{book.authorlink}}">by {{book.authorstring}}</a>
+	    <span class="publication_date pull-right" >({{book.pubdate | bookpubdate}}) </span>
+	    <!-- <span class="publication_date pull-right" >({{book.pubdate}}) </span> -->
+	  </div>
+
+	  <div class="ol_readapi_book row card_row" olid="{{book.olreadableid}}"></div>
+
+	  <!-- description -->
+	  <div class="row card_row"> 
+	    <p style="float:left" class="card-text">{{book.description}}<a ng-if="book.booklink" href="{{book.booklink}}"> ....</a> </p>
+	  </div>
+
+	  <!-- card footer -->
+	  <div class="row1 card_row"> <hr> </div>
+	  <div class="row card_row" style="display:flex; margin-right: -15px;">
+	    <div ng-if="book.storytitle" style="padding-right: 10px;">
+	      <a class="thp-avatar" style="margin-top: 5px; background-image: url({{book.feedicon}});
+					   background-repeat: no-repeat; background-position: 50%; background-size: cover;
+					   border: 1px solid #fff; width: 32px; height: 32px;"
+		 title = "Visit page for {{book.feedname}}" ng-href="{{book.feedurl}}"></a>
+	    </div>
+	    <div ng-if="book.storytitle" class="caption-padding" style="padding-left: 0px; padding-right: 15px; padding-bottom: 3px; align-self: flex-end; line-height: 1.2;" >
+	      <span class="publication_date">{{book.storydate | bookpubdate}}, via&nbsp;</span><a tooltip-html-unsafe="{{book.feedname}} wrote: <i>{{book.storytitle}}</i>" ng-href="{{book.storyurl}}" class="publication_date">{{book.feedname}}</a>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      <!-- <div masonry-tile class="masonry-brick masonryitem"  collection-repeat="list in _list"> -->
+      <!-- 	<\!-- <ion-item collection-repeat="list in _list" class="item-thumbnail-left"> -\-> -->
+      <!-- 	<img ng-src="{{list.image}}"> -->
+      <!--   <h2>{{list.name}}</h2> -->
+      <!-- 	<p>{{list.address}}</p> -->
+      <!--   <p>{{list.phone}}</p>      -->
+      <!-- 	<p>{{list.description}}</p> -->
+      <!-- 	<\!-- </ion-item> -\-> -->
+      <!-- </div> -->
+    </div>
+    <!-- </ion-list> -->
+    
+    <ion-infinite-scroll
+       ng-if="canWeLoadMoreContent()"
+       on-infinite="populateList()" 
+       distance="1%">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+    <!-- <ion-infinite-scroll -->
+    <!--   ng-if="moreDataCanBeLoaded()" -->
+    <!--   icon="ion-loading-c" -->
+    <!--   on-infinite="loadMoreData()" -->
+    <!--   distance="1%"> -->
+    <!-- </ion-infinite-scroll> -->
+
+  </ion-content>
+</ion-view>
