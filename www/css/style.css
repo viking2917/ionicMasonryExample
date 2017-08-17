@@ -82,3 +82,82 @@ a {
     width: 80px;
     height: 80px;
 }
+
+/* RESPONSIVE CSS
+    a set of crude breakpoints for the width of the cards. I suppose this should really be done with %widths...sigh.
+   -------------------------------------------------- */
+
+@media (max-width: 1100px) {
+    .masonryitem {
+	width: 225px;
+    }
+}
+
+@media (max-width: 900px) {
+    .masonryitem {
+	width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonryitem {
+	width: 225px;
+    }
+}
+
+@media (max-width: 600px) {
+    .thp-avatar>img {
+	width: 75px;
+	height: 75px;
+    }
+}
+
+@media (max-width: 400px) {
+    .masonryitem {
+    	width: 200px;
+    }
+
+    .card_title {
+	font-size: 14px;
+    }
+    .publication_date {
+	font-size: 10px;
+    }
+
+    .card-text {
+	font-size: 12px;
+    }
+
+    .stream_cover_image {
+	width: 100%;
+    }
+}
+
+/* iphohe 6plus, nexus */
+@media (max-width: 420px) {
+    .masonryitem {
+	width: 196px;
+    }
+}
+
+/* iphone 6 */
+@media (max-width: 375px) {
+    .masonryitem {
+	width: 178px;
+    }
+}
+
+/* galaxy s5 */
+@media (max-width: 360px) {
+    .masonryitem {
+	width: 170px;
+    }
+}
+
+/* iphone 5 */
+@media (max-width: 320px) {
+    .masonryitem {
+	width: 150px;
+    }
+}
+
